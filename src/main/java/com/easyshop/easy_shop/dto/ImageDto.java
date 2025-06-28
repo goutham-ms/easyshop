@@ -1,0 +1,11 @@
+package com.easyshop.easy_shop.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+public class ImageDto {
+    private Long imageId;
+    private String imageName;
+    private String downloadUrl;
+}
