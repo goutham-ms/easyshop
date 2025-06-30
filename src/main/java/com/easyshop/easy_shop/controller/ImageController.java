@@ -4,7 +4,7 @@ import com.easyshop.easy_shop.dto.ImageDto;
 import com.easyshop.easy_shop.exceptions.ResourceNotFoundException;
 import com.easyshop.easy_shop.model.Image;
 import com.easyshop.easy_shop.response.ApiResponse;
-import com.easyshop.easy_shop.service.image.ImageServiceImpl;
+import com.easyshop.easy_shop.service.image.ImageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -24,7 +24,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RestController
 @RequestMapping("${api.prefix}/images")
 public class ImageController {
-    private final ImageServiceImpl imageService;
+    private final ImageService imageService;
 
     @PostMapping("/upload")
     public ResponseEntity<ApiResponse> saveImage(@RequestParam List<MultipartFile> files, @RequestParam Long productId) {

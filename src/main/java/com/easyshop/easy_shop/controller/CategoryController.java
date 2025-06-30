@@ -4,7 +4,7 @@ import com.easyshop.easy_shop.exceptions.AlreadyExistException;
 import com.easyshop.easy_shop.exceptions.ResourceNotFoundException;
 import com.easyshop.easy_shop.model.Category;
 import com.easyshop.easy_shop.response.ApiResponse;
-import com.easyshop.easy_shop.service.category.CategoryServiceImpl;
+import com.easyshop.easy_shop.service.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ import static org.springframework.http.HttpStatus.*;
 @RestController
 @RequestMapping("${api.prefix}/categories")
 public class  CategoryController {
-    private final CategoryServiceImpl categoryService;
+    private final CategoryService categoryService;
 
     @GetMapping("/all")
     public ResponseEntity<ApiResponse> getAllCategories() {
