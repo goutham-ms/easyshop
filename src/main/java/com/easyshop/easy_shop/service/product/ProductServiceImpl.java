@@ -2,6 +2,7 @@ package com.easyshop.easy_shop.service.product;
 
 import com.easyshop.easy_shop.dto.ImageDto;
 import com.easyshop.easy_shop.dto.ProductDto;
+import com.easyshop.easy_shop.exceptions.AlreadyExistException;
 import com.easyshop.easy_shop.exceptions.ResourceNotFoundException;
 import com.easyshop.easy_shop.model.Category;
 import com.easyshop.easy_shop.model.Image;
@@ -28,6 +29,10 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product addProduct(AddProductRequest request) {
+
+        if(duplicateProduct(request.getName(), request.getBrand())) {
+            throw new AlreadyExistException(request.getName() + " " + request.getBrand() + " product already exists, update the product instead!");
+        }
         Category category = Optional.ofNullable(categoryRepository.findByName(request.getCategory().getName()))
                 .orElseGet(() -> {
                     Category newCategory = new Category(request.getCategory().getName());
@@ -46,6 +51,10 @@ public class ProductServiceImpl implements ProductService{
                 request.getDescription(),
                 category
         );
+    }
+
+    private boolean duplicateProduct(String name, String brand) {
+        return productRepository.existsByNameAndBrand(name, brand);
     }
 
 

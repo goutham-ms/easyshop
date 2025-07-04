@@ -1,5 +1,6 @@
 package com.easyshop.easy_shop.service.cart;
 
+import com.easyshop.easy_shop.dto.CartDto;
 import com.easyshop.easy_shop.model.Cart;
 import com.easyshop.easy_shop.model.User;
 
@@ -13,4 +14,6 @@ public interface CartService {
     Cart newCartInitializer(User user);
 
     Cart getCartByUserId(Long userId);
+
+    CartDto convertToDto(Cart cart);
 }

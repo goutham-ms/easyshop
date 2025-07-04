@@ -1,7 +1,6 @@
 package com.easyshop.easy_shop.service.product;
 
 import com.easyshop.easy_shop.dto.ProductDto;
-import com.easyshop.easy_shop.model.Category;
 import com.easyshop.easy_shop.model.Product;
 import com.easyshop.easy_shop.request.AddProductRequest;
 import com.easyshop.easy_shop.request.UpdateProductRequest;

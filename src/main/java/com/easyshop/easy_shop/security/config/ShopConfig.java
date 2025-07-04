@@ -1,4 +1,4 @@
-package com.easyshop.easy_shop.config;
+package com.easyshop.easy_shop.security;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

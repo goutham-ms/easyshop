@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
 
-    private OrderDto convertToDto (Order order) {
+    public OrderDto convertToDto (Order order) {
         return modelMapper.map(order, OrderDto.class);
     }
 }
